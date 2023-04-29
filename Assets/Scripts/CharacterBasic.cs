@@ -8,7 +8,7 @@ public class CharacterBasic : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float moveRate = Time.deltaTime * 0.5f;
+        float moveRate = Time.deltaTime * 0.3f;
 
         if (Input.GetAxis("Horizontal") > 0)
         {
