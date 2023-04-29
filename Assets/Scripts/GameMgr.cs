@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameMgr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public LevelMgr levelMgr;
 
-    // Update is called once per frame
-    void Update()
+    public void Init()
     {
-        
+        levelMgr.Init();
     }
 }

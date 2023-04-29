@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelMgr : MonoBehaviour
+public class CharacterBasic : MonoBehaviour
 {
-    public void Init()
-    {
-
-    }
+    
 }
