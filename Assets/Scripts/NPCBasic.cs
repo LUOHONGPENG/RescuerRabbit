@@ -38,7 +38,7 @@ public class NPCBasic : MonoBehaviour
     public IEnumerator IE_Kill()
     {
         aniDead.enabled = true;
-        if (GameMgr.Instance.levelMgr.catchNPC = this)
+        if (this == GameMgr.Instance.levelMgr.catchNPC)
         {
             GameMgr.Instance.levelMgr.catchNPC = null;
         }

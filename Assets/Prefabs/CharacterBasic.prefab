@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tfCharacter: {fileID: 2654785318307725804}
   srCharacter: {fileID: 8347248141958640868}
-  aniCatch: {fileID: 7613444723581856005}
+  aniCatch: {fileID: 7598822724088578280}
   triCatch: {fileID: 8294648376479330994}
 --- !u!33 &2654785318307725801
 MeshFilter:

@@ -7,7 +7,7 @@ public class CharacterBasic : MonoBehaviour
     public Transform tfCharacter;
     public SpriteRenderer srCharacter;
 
-    public GameObject aniCatch;
+    public Animator aniCatch;
     public CapsuleCollider triCatch;
 
     public void Init()
@@ -21,7 +21,7 @@ public class CharacterBasic : MonoBehaviour
         float moveRate = Time.deltaTime * 0.3f;
         if (GameMgr.Instance.levelMgr.catchNPC != null)
         {
-            moveRate = moveRate * 0.2f;
+            moveRate = moveRate * 0.3f;
         }
 
 
@@ -73,6 +73,7 @@ public class CharacterBasic : MonoBehaviour
     public IEnumerator IE_ShowTip()
     {
         aniCatch.gameObject.SetActive(true);
+        aniCatch.Play("AniCatch",0,-1f);
         yield return new WaitForSeconds(0.5f);
         aniCatch.gameObject.SetActive(false);
     }

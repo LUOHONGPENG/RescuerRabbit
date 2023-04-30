@@ -21,7 +21,7 @@ public class LevelMgr : MonoBehaviour
     public int countSave = 0;
     public float dataHP = 100f;
     public float dataTP = 100f;
-
+    public bool isEnd = false;
 
     public void Init()
     {
@@ -29,6 +29,7 @@ public class LevelMgr : MonoBehaviour
         monsterBasic.Init();
         countSave = 0;
         timerNPCGenerate = 0;
+        isEnd = false;
         isInit = true;
     }
 
@@ -126,9 +127,10 @@ public class LevelMgr : MonoBehaviour
 
     public void TimeCheckHP()
     {
-        if (dataHP < 0)
+        if (dataHP < 0 && !isEnd)
         {
-
+            GameMgr.Instance.uiMgr.endUIMgr.Show();
+            isEnd = true;
         }
     }
     #endregion 
