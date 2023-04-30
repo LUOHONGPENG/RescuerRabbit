@@ -13,7 +13,10 @@ public class LevelMgr : MonoBehaviour
     private float timerNPCGenerate = 0;
     private bool isInit = false;
     public NPCBasic catchNPC;
+    //Data
     public int countSave = 0;
+    public float dataTP = 100f;
+
 
     public void Init()
     {
@@ -31,9 +34,11 @@ public class LevelMgr : MonoBehaviour
             TimeGoCheckRoop();
             TimeGoCheckSave();
             TimeGoGenerateNPC();
+            TimeCheckTP();
         }
     }
 
+     #region Time
     public void TimeGoCheckRoop()
     {
         Collider[] hits = Physics.OverlapBox(triggerUp.gameObject.transform.position + triggerUp.center, triggerUp.size / 2);
@@ -84,9 +89,28 @@ public class LevelMgr : MonoBehaviour
             CreateNPC(posNPC);
             timerNPCGenerate = 10f;
         }
-        
-
     }
+
+    public void TimeCheckTP()
+    {
+        if (catchNPC != null)
+        {
+            dataTP -= Time.deltaTime * 4f;
+            if (dataTP < 0)
+            {
+                catchNPC.state = NPCBasic.NPCState.Free;
+                catchNPC = null;
+            }
+        }
+        else
+        {
+            if (dataTP < 100f)
+            {
+                dataTP += Time.deltaTime * 8f;
+            }
+        }
+    }
+    #endregion 
 
     public void CreateNPC(Vector3 pos)
     {

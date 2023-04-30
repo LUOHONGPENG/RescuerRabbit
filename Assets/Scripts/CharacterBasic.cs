@@ -19,6 +19,11 @@ public class CharacterBasic : MonoBehaviour
     private void FixedUpdate()
     {
         float moveRate = Time.deltaTime * 0.3f;
+        if (GameMgr.Instance.levelMgr.catchNPC != null)
+        {
+            moveRate = moveRate * 0.2f;
+        }
+
 
         if (Input.GetAxis("Horizontal") > 0)
         {
@@ -47,18 +52,18 @@ public class CharacterBasic : MonoBehaviour
         {
             StartCoroutine(IE_ShowTip());
 
-            Collider[] hits = Physics.OverlapSphere(triCatch.gameObject.transform.position + triCatch.center, triCatch.radius);
+            Collider[] hits = Physics.OverlapSphere(triCatch.gameObject.transform.position + triCatch.center, triCatch.radius * 0.1f);
 
             foreach (var hit in hits)
             {
                 if (hit.tag == "NPC")
                 {
-                    Debug.Log("NPC");
                     NPCBasic NPC = hit.GetComponent<NPCBasic>();
                     if (NPC != null)
                     {
                         NPC.state = NPCBasic.NPCState.Catch;
                         GameMgr.Instance.levelMgr.catchNPC = NPC;
+                        break;
                     }
                 }
             }
