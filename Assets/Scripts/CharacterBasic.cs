@@ -14,10 +14,12 @@ public class CharacterBasic : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             tfCharacter.transform.Translate(Vector3.right * moveRate);
+            srCharacter.flipX = true;
         }
         else if (Input.GetAxis("Horizontal") < 0)
         {
             tfCharacter.transform.Translate(Vector3.left * moveRate);
+            srCharacter.flipX = false;
         }
 
         if (Input.GetAxis("Vertical") > 0)
