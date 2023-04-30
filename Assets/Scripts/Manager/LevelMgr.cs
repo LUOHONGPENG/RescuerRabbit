@@ -7,20 +7,26 @@ public class LevelMgr : MonoBehaviour
     public BoxCollider triggerUp;
     public BoxCollider triggerSave;
     public CharacterBasic characterBasic;
+    public MonsterBasic monsterBasic;
+
     public Transform tfNPC;
     public GameObject pfNPC;
 
     private float timerNPCGenerate = 0;
+    private float timer = 0;
+
     private bool isInit = false;
     public NPCBasic catchNPC;
     //Data
     public int countSave = 0;
+    public float dataHP = 100f;
     public float dataTP = 100f;
 
 
     public void Init()
     {
         characterBasic.Init();
+        monsterBasic.Init();
         countSave = 0;
         timerNPCGenerate = 0;
         isInit = true;
@@ -31,6 +37,7 @@ public class LevelMgr : MonoBehaviour
 
         if (isInit)
         {
+            TimeCheckHP();
             TimeGoCheckRoop();
             TimeGoCheckSave();
             TimeGoGenerateNPC();
@@ -80,14 +87,20 @@ public class LevelMgr : MonoBehaviour
 
     public void TimeGoGenerateNPC()
     {
+        timer += Time.deltaTime;
         timerNPCGenerate -= Time.deltaTime;
         if (timerNPCGenerate < 0)
         {
-            float posX = Random.Range(0f, 0.3f);
+            float posX = Random.Range(0.2f, 0.3f);
             float posZ = Random.Range(-0.6f, -0.3f);
-            Vector3 posNPC = new Vector3(posX,0, posZ);
+            Vector3 posNPC = new Vector3(posX,-0.15f, posZ);
             CreateNPC(posNPC);
-            timerNPCGenerate = 10f;
+            float timeStandard = 6f - timer * 0.04f;
+            if (timeStandard < 3f)
+            {
+                timeStandard = 3f;
+            }
+            timerNPCGenerate = timeStandard;
         }
     }
 
@@ -108,6 +121,14 @@ public class LevelMgr : MonoBehaviour
             {
                 dataTP += Time.deltaTime * 8f;
             }
+        }
+    }
+
+    public void TimeCheckHP()
+    {
+        if (dataHP < 0)
+        {
+
         }
     }
     #endregion 

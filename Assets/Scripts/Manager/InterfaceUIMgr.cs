@@ -18,6 +18,7 @@ public class InterfaceUIMgr : MonoBehaviour
     private void Update()
     {
         codeSave.text = GameMgr.Instance.levelMgr.countSave.ToString();
+        imgFillHP.fillAmount = GameMgr.Instance.levelMgr.dataHP / 100F;
         imgFillTP.fillAmount = GameMgr.Instance.levelMgr.dataTP / 100F;
     }
 }

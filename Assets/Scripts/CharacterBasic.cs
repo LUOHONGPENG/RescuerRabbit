@@ -59,7 +59,7 @@ public class CharacterBasic : MonoBehaviour
                 if (hit.tag == "NPC")
                 {
                     NPCBasic NPC = hit.GetComponent<NPCBasic>();
-                    if (NPC != null)
+                    if (NPC != null && NPC.state == NPCBasic.NPCState.Free && !NPC.isDead)
                     {
                         NPC.state = NPCBasic.NPCState.Catch;
                         GameMgr.Instance.levelMgr.catchNPC = NPC;
@@ -73,7 +73,7 @@ public class CharacterBasic : MonoBehaviour
     public IEnumerator IE_ShowTip()
     {
         aniCatch.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         aniCatch.gameObject.SetActive(false);
     }
 }

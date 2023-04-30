@@ -15,14 +15,45 @@ public class NPCBasic : MonoBehaviour
     public Rigidbody thisBody;
     public CapsuleCollider colNPC;
     public NPCState state;
+    public Animator aniDead;
+
+    public float dataHP = 50F;
+    public bool isDead = false;
 
     public void Init()
     {
         state = NPCState.Free;
+        aniDead.enabled = false;
     }
+
+    private void Update()
+    {
+        if (dataHP < 0 && !isDead)
+        {
+            StartCoroutine(IE_Kill());
+            isDead = true;
+        }
+    }
+
+    public IEnumerator IE_Kill()
+    {
+        aniDead.enabled = true;
+        if (GameMgr.Instance.levelMgr.catchNPC = this)
+        {
+            GameMgr.Instance.levelMgr.catchNPC = null;
+        }
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
+
 
     private void FixedUpdate()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         switch (state)
         {
             case NPCState.Free:
@@ -31,6 +62,7 @@ public class NPCBasic : MonoBehaviour
                 thisBody.useGravity = true;
                 break;
             case NPCState.Up:
+                thisBody.velocity = Vector3.zero;
                 tfNPC.transform.Translate(Vector3.up * Time.deltaTime * 0.1f);
                 thisBody.useGravity = false;
                 break;
