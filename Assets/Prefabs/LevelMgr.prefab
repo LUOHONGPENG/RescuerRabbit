@@ -47,10 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e43644e3e70ec4590660c7810b0834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerSave: {fileID: 7468716367449909290}
+  triggerUp: {fileID: 7468716367449909290}
+  triggerSave: {fileID: 1349572876271118700}
   characterBasic: {fileID: 5062468501865763240}
   tfNPC: {fileID: 8275609836042625223}
   pfNPC: {fileID: 380195889932556128, guid: bc2c2db9151787245a23652aab1881fa, type: 3}
+  catchNPC: {fileID: 0}
+  countSave: 0
 --- !u!1 &1714194576724785893
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +123,96 @@ Transform:
   m_Father: {fileID: 5389935649361325783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &601135982891894849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1801279484061825896}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0069
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.224
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0065
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e656aaca4e518b149928a704d1fa9ea3,
+        type: 3}
+      propertyPath: m_Name
+      value: Roop2 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: e656aaca4e518b149928a704d1fa9ea3, type: 3}
+    - {fileID: -7511558181221131132, guid: e656aaca4e518b149928a704d1fa9ea3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e656aaca4e518b149928a704d1fa9ea3, type: 3}
+--- !u!1 &330662918774797584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e656aaca4e518b149928a704d1fa9ea3,
+    type: 3}
+  m_PrefabInstance: {fileID: 601135982891894849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1349572876271118700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330662918774797584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.1, z: 0.18}
+  m_Center: {x: 0.005000002, y: -0.024999999, z: 0}
 --- !u!1001 &776409652844518843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -791,7 +884,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.18, y: 0.2, z: 0.18}
+  m_Size: {x: 0.15, y: 0.2, z: 0.15}
   m_Center: {x: 0.005000002, y: -0.024999999, z: 0}
 --- !u!1001 &6552175267995079545
 PrefabInstance:

@@ -7,6 +7,15 @@ public class CharacterBasic : MonoBehaviour
     public Transform tfCharacter;
     public SpriteRenderer srCharacter;
 
+    public GameObject aniCatch;
+    public CapsuleCollider triCatch;
+
+    public void Init()
+    {
+        aniCatch.gameObject.SetActive(false);
+    }
+
+
     private void FixedUpdate()
     {
         float moveRate = Time.deltaTime * 0.3f;
@@ -32,5 +41,34 @@ public class CharacterBasic : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Catch") && GameMgr.Instance.levelMgr.catchNPC==null)
+        {
+            StartCoroutine(IE_ShowTip());
 
+            Collider[] hits = Physics.OverlapSphere(triCatch.gameObject.transform.position + triCatch.center, triCatch.radius);
+
+            foreach (var hit in hits)
+            {
+                if (hit.tag == "NPC")
+                {
+                    Debug.Log("NPC");
+                    NPCBasic NPC = hit.GetComponent<NPCBasic>();
+                    if (NPC != null)
+                    {
+                        NPC.state = NPCBasic.NPCState.Catch;
+                        GameMgr.Instance.levelMgr.catchNPC = NPC;
+                    }
+                }
+            }
+        }
+    }
+
+    public IEnumerator IE_ShowTip()
+    {
+        aniCatch.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        aniCatch.gameObject.SetActive(false);
+    }
 }

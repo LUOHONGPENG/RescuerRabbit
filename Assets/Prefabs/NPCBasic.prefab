@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 380195889932556133}
   m_Layer: 0
   m_Name: NPCBasic
-  m_TagString: Player
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702a548ea49eb2c4897360ff6296d9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tfNPC: {fileID: 380195889932556129}
+  state: 0
 --- !u!33 &380195889932556132
 MeshFilter:
   m_ObjectHideFlags: 0
