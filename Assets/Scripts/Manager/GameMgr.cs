@@ -16,5 +16,6 @@ public class GameMgr : MonoSingleton<GameMgr>
     {
         base.Init();
         levelMgr.Init();
+        uiMgr.Init();
     }
 }
