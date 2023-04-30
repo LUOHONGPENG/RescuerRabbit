@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterBasic : MonoBehaviour
 {
     public Transform tfCharacter;
+    public SpriteRenderer srCharacter;
 
     private void FixedUpdate()
     {

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class LevelMgr : MonoBehaviour
 {
+    public BoxCollider triggerSave;
+
     public void Init()
+    {
+
+    }
+
+    public void TimeGoCheckRoop()
     {
 
     }
