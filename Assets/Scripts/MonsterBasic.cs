@@ -30,7 +30,7 @@ public class MonsterBasic : MonoBehaviour
             }
             else if(hit.tag == "Player")
             {
-                GameMgr.Instance.levelMgr.dataHP -= Time.deltaTime * 10f;
+                GameMgr.Instance.levelMgr.dataHP -= Time.deltaTime * 15f;
             }
         }
     }
