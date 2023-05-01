@@ -10,9 +10,13 @@ public class CharacterBasic : MonoBehaviour
     public Animator aniCatch;
     public CapsuleCollider triCatch;
 
+    private float dataHPLast;
+
     public void Init()
     {
         aniCatch.gameObject.SetActive(false);
+        dataHPLast = GameMgr.Instance.levelMgr.dataHP;
+
     }
 
 
@@ -48,6 +52,7 @@ public class CharacterBasic : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetButtonDown("Catch") && GameMgr.Instance.levelMgr.catchNPC==null)
         {
             StartCoroutine(IE_ShowTip());
@@ -70,6 +75,18 @@ public class CharacterBasic : MonoBehaviour
                 }
             }
         }
+
+        if (GameMgr.Instance.levelMgr.dataHP < dataHPLast)
+        {
+            srCharacter.color = Color.red;
+            dataHPLast = GameMgr.Instance.levelMgr.dataHP;
+        }
+        else
+        {
+            srCharacter.color = Color.white;
+        }
+
+
     }
 
     public IEnumerator IE_ShowTip()
