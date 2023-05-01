@@ -21,7 +21,7 @@ public class CharacterBasic : MonoBehaviour
         float moveRate = Time.deltaTime * 0.3f;
         if (GameMgr.Instance.levelMgr.catchNPC != null)
         {
-            moveRate = moveRate * 0.3f;
+            moveRate = moveRate * 0.25f;
         }
 
 
@@ -51,6 +51,8 @@ public class CharacterBasic : MonoBehaviour
         if (Input.GetButtonDown("Catch") && GameMgr.Instance.levelMgr.catchNPC==null)
         {
             StartCoroutine(IE_ShowTip());
+
+            GameMgr.Instance.soundMgr.PlaySoundCatch();
 
             Collider[] hits = Physics.OverlapSphere(triCatch.gameObject.transform.position + triCatch.center, triCatch.radius * 0.1f);
 

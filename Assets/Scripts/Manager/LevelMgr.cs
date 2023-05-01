@@ -81,6 +81,8 @@ public class LevelMgr : MonoBehaviour
                 {
                     Destroy(NPC.gameObject);
                     countSave++;
+                    GameMgr.Instance.soundMgr.PlaySoundThank();
+
                 }
             }
         }
@@ -109,11 +111,12 @@ public class LevelMgr : MonoBehaviour
     {
         if (catchNPC != null)
         {
-            dataTP -= Time.deltaTime * 4f;
+            dataTP -= Time.deltaTime * 5f;
             if (dataTP < 0)
             {
                 catchNPC.state = NPCBasic.NPCState.Free;
                 catchNPC = null;
+                GameMgr.Instance.soundMgr.PlaySound(SoundType.Tired);
             }
         }
         else

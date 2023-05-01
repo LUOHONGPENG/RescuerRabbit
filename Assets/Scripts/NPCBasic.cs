@@ -38,6 +38,8 @@ public class NPCBasic : MonoBehaviour
     public IEnumerator IE_Kill()
     {
         aniDead.enabled = true;
+        GameMgr.Instance.soundMgr.PlaySoundDead();
+
         if (this == GameMgr.Instance.levelMgr.catchNPC)
         {
             GameMgr.Instance.levelMgr.catchNPC = null;

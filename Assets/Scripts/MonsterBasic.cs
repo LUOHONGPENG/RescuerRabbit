@@ -37,8 +37,8 @@ public class MonsterBasic : MonoBehaviour
 
     public void FixedUpdate()
     {
-        this.transform.Translate(Vector3.right * Time.deltaTime * 0.002f);
-        colKill.transform.Translate(Vector3.right * Time.deltaTime * 0.002f);
+        this.transform.Translate(Vector3.right * Time.deltaTime * 0.0025f);
+        colKill.transform.Translate(Vector3.right * Time.deltaTime * 0.0025f);
 
     }
 }

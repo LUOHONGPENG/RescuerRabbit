@@ -6,6 +6,7 @@ public class GameMgr : MonoSingleton<GameMgr>
 {
     public LevelMgr levelMgr;
     public UIMgr uiMgr;
+    public SoundMgr soundMgr;
 
     public void Start()
     {
@@ -17,5 +18,6 @@ public class GameMgr : MonoSingleton<GameMgr>
         base.Init();
         levelMgr.Init();
         uiMgr.Init();
+        soundMgr.Init();
     }
 }
